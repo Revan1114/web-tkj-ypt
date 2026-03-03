@@ -861,11 +861,11 @@
             }
         }
 
-        /* --- ✨ EFEK SCROLL PROFESIONAL BARU ✨ --- */
+        /* --- ✨ EFEK SCROLL PROFESIONAL BARU (smooth & slower) ✨ --- */
         [data-scroll] {
             opacity: 0;
             transform: translateY(80px) scale(0.95);
-            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 2s cubic-bezier(0.22, 1, 0.36, 1), transform 2s cubic-bezier(0.22, 1, 0.36, 1);
             will-change: transform, opacity;
         }
 
@@ -878,7 +878,7 @@
         [data-scroll="left"] {
             opacity: 0;
             transform: translateX(-100px) scale(0.9);
-            transition: all 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1), transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-scroll="left"].is-visible {
@@ -890,7 +890,7 @@
         [data-scroll="right"] {
             opacity: 0;
             transform: translateX(100px) scale(0.9);
-            transition: all 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1), transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-scroll="right"].is-visible {
@@ -902,7 +902,7 @@
         [data-scroll="top"] {
             opacity: 0;
             transform: translateY(-80px) scale(0.95);
-            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1), transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-scroll="top"].is-visible {
@@ -914,7 +914,7 @@
         [data-scroll="bottom"] {
             opacity: 0;
             transform: translateY(80px) scale(0.95);
-            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1), transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-scroll="bottom"].is-visible {
@@ -926,7 +926,7 @@
         [data-scroll="scale"] {
             opacity: 0;
             transform: scale(0.7) translateY(60px);
-            transition: all 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 2s cubic-bezier(0.22, 1, 0.36, 1), transform 2s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-scroll="scale"].is-visible {
@@ -938,7 +938,7 @@
         [data-scroll="rotate-left"] {
             opacity: 0;
             transform: translateX(-60px) rotate(-8deg) scale(0.9);
-            transition: all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 1.6s cubic-bezier(0.22, 1, 0.36, 1), transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-scroll="rotate-left"].is-visible {
@@ -950,7 +950,7 @@
         [data-scroll="rotate-right"] {
             opacity: 0;
             transform: translateX(60px) rotate(8deg) scale(0.9);
-            transition: all 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 1.6s cubic-bezier(0.22, 1, 0.36, 1), transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-scroll="rotate-right"].is-visible {
@@ -962,19 +962,19 @@
         [data-scroll="stagger-1"] {
             opacity: 0;
             transform: translateY(60px) scale(0.9);
-            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+            transition: opacity 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s, transform 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
         }
 
         [data-scroll="stagger-2"] {
             opacity: 0;
             transform: translateY(60px) scale(0.9);
-            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+            transition: opacity 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.6s, transform 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.6s;
         }
 
         [data-scroll="stagger-3"] {
             opacity: 0;
             transform: translateY(60px) scale(0.9);
-            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s;
+            transition: opacity 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.85s, transform 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.85s;
         }
 
         [data-scroll="stagger-1"].is-visible,
@@ -988,7 +988,7 @@
         [data-scroll="flip"] {
             opacity: 0;
             transform: perspective(1200px) rotateX(20deg) translateY(80px) scale(0.9);
-            transition: all 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: opacity 2.2s cubic-bezier(0.22, 1, 0.36, 1), transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-scroll="flip"].is-visible {
@@ -1000,7 +1000,7 @@
         [data-scroll="bounce"] {
             opacity: 0;
             transform: translateY(60px) scale(0.8);
-            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1), transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         [data-scroll="bounce"].is-visible {
@@ -1035,7 +1035,7 @@
                 linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.03) 30%, rgba(59, 130, 246, 0.03) 70%, transparent 70%),
                 linear-gradient(-45deg, transparent 30%, rgba(16, 185, 129, 0.03) 30%, rgba(16, 185, 129, 0.03) 70%, transparent 70%);
             background-size: 60px 60px, 80px 80px;
-            animation: background-shift 20s linear infinite;
+            animation: background-shift 28s linear infinite;
             z-index: 1;
             pointer-events: none;
         }
@@ -1049,7 +1049,7 @@
             bottom: 0;
             background:
                 radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
-            animation: pulse-glow 8s ease-in-out infinite;
+            animation: pulse-glow 12s ease-in-out infinite;
             z-index: 1;
             pointer-events: none;
         }
@@ -1103,7 +1103,7 @@
             background: radial-gradient(circle, #3b82f6 0%, #1d4ed8 100%);
             border-radius: 50%;
             box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
-            animation: float-node 12s ease-in-out infinite;
+            animation: float-node 18s ease-in-out infinite;
         }
 
         .circuit-line {
@@ -1111,7 +1111,7 @@
             height: 40px;
             background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
             box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-            animation: float-circuit 15s ease-in-out infinite;
+            animation: float-circuit 22s ease-in-out infinite;
         }
 
         .data-packet {
@@ -1120,7 +1120,7 @@
             background: linear-gradient(45deg, #10b981, #059669);
             border-radius: 3px;
             box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
-            animation: float-packet 18s ease-in-out infinite;
+            animation: float-packet 26s ease-in-out infinite;
         }
 
         .tech-orb {
@@ -1129,7 +1129,7 @@
             background: radial-gradient(circle, #8b5cf6, #7c3aed);
             border-radius: 50%;
             box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
-            animation: rotate-orb 20s linear infinite;
+            animation: rotate-orb 28s linear infinite;
         }
 
         .energy-wave {
@@ -1138,7 +1138,7 @@
             background: linear-gradient(90deg, #06b6d4, #0891b2);
             border-radius: 2px;
             box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
-            animation: pulse-wave 10s ease-in-out infinite;
+            animation: pulse-wave 14s ease-in-out infinite;
         }
 
         @keyframes float-node {
@@ -3278,7 +3278,7 @@
             width: 100px;
             height: 180px;
             position: relative;
-            animation: walk 1.2s steps(1) infinite;
+            animation: walk 1.6s steps(1) infinite;
         }
 
         .robot-part {
@@ -3361,12 +3361,12 @@
 
         .arm.left {
             left: 0px;
-            animation: swing-left 1.2s ease-in-out infinite;
+            animation: swing-left 1.6s ease-in-out infinite;
         }
 
         .arm.right {
             right: 0px;
-            animation: swing-right 1.2s ease-in-out infinite;
+            animation: swing-right 1.6s ease-in-out infinite;
         }
 
         .leg {
@@ -3379,12 +3379,12 @@
 
         .leg.left {
             left: 25px;
-            animation: step-left 1.2s ease-in-out infinite;
+            animation: step-left 1.6s ease-in-out infinite;
         }
 
         .leg.right {
             right: 25px;
-            animation: step-right 1.2s ease-in-out infinite;
+            animation: step-right 1.6s ease-in-out infinite;
         }
 
         @keyframes walk {
@@ -3460,13 +3460,13 @@
 
         .step-visual.left {
             left: 25px;
-            animation: step-effect 1.2s ease-out infinite;
+            animation: step-effect 1.6s ease-out infinite;
             animation-delay: 0.6s;
         }
 
         .step-visual.right {
             right: 25px;
-            animation: step-effect 1.2s ease-out infinite;
+            animation: step-effect 1.6s ease-out infinite;
         }
 
         @keyframes step-effect {
@@ -4050,7 +4050,7 @@
             border-radius: 20px;
             padding: 24px;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.55s cubic-bezier(0.22, 1, 0.36, 1);
             border: 1px solid #f3f4f6;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             height: 100%;
@@ -4087,7 +4087,7 @@
             overflow: hidden;
             border: 4px solid #f9fafb;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .dark .guru-photo-modern-wrapper {
@@ -4395,64 +4395,64 @@
             position: relative;
         }
 
-        /* ✨ Beranda: animated background orbs */
+        /* ✨ Beranda: animated background orbs (slower) */
         .beranda-orb {
-            animation: beranda-orb-float 12s ease-in-out infinite;
+            animation: beranda-orb-float 18s ease-in-out infinite;
         }
         .beranda-orb:nth-child(1) { animation-delay: 0s; }
-        .beranda-orb:nth-child(2) { animation-delay: -4s; }
-        .beranda-orb:nth-child(3) { animation-delay: -8s; }
+        .beranda-orb:nth-child(2) { animation-delay: -6s; }
+        .beranda-orb:nth-child(3) { animation-delay: -12s; }
         @keyframes beranda-orb-float {
             0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; }
             33% { transform: translate(15px, -20px) scale(1.05); opacity: 1; }
             66% { transform: translate(-10px, 10px) scale(0.98); opacity: 0.85; }
         }
 
-        /* ✨ Beranda: entrance animations */
+        /* ✨ Beranda: entrance animations (slower, smoother) */
         .beranda-fade-in {
             opacity: 0;
             transform: translateY(28px);
-            animation: beranda-fade-in-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: beranda-fade-in-up 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        .beranda-fade-in-delay-1 { animation-delay: 0.15s; }
-        .beranda-fade-in-delay-2 { animation-delay: 0.3s; }
-        .beranda-fade-in-delay-3 { animation-delay: 0.45s; }
-        .beranda-fade-in-delay-4 { animation-delay: 0.6s; }
-        .beranda-fade-in-delay-5 { animation-delay: 0.75s; }
+        .beranda-fade-in-delay-1 { animation-delay: 0.25s; }
+        .beranda-fade-in-delay-2 { animation-delay: 0.5s; }
+        .beranda-fade-in-delay-3 { animation-delay: 0.75s; }
+        .beranda-fade-in-delay-4 { animation-delay: 1s; }
+        .beranda-fade-in-delay-5 { animation-delay: 1.25s; }
         @keyframes beranda-fade-in-up {
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ✨ Beranda: hero image glow pulse */
+        /* ✨ Beranda: hero image glow pulse (slower) */
         .beranda-hero-glow {
-            animation: beranda-glow-pulse 4s ease-in-out infinite;
+            animation: beranda-glow-pulse 6s ease-in-out infinite;
         }
         @keyframes beranda-glow-pulse {
             0%, 100% { opacity: 0.85; filter: blur(40px); }
             50% { opacity: 1; filter: blur(48px); }
         }
 
-        /* ✨ Beranda: image float + entrance */
+        /* ✨ Beranda: image float + entrance (slower) */
         .beranda-hero-img {
             opacity: 0;
             transform: translateY(24px);
-            animation: beranda-fade-in-up 0.9s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-                beranda-img-float 6s 1.15s ease-in-out infinite;
+            animation: beranda-fade-in-up 1.4s 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+                beranda-img-float 8s 1.8s ease-in-out infinite;
         }
         @keyframes beranda-img-float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
         }
 
-        /* ✨ Beranda: staggered badge entrance */
+        /* ✨ Beranda: staggered badge entrance (slower) */
         .beranda-badge {
             opacity: 0;
             transform: translateY(16px) scale(0.96);
-            animation: beranda-badge-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: beranda-badge-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        .beranda-badge:nth-child(1) { animation-delay: 0.5s; }
-        .beranda-badge:nth-child(2) { animation-delay: 0.65s; }
-        .beranda-badge:nth-child(3) { animation-delay: 0.8s; }
+        .beranda-badge:nth-child(1) { animation-delay: 0.8s; }
+        .beranda-badge:nth-child(2) { animation-delay: 1.05s; }
+        .beranda-badge:nth-child(3) { animation-delay: 1.3s; }
         @keyframes beranda-badge-in {
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
@@ -4473,7 +4473,7 @@
         /* Tombol Jelajahi Jurusan di beranda (tengah, sejajar tulisan TJKT) */
         .btn-jelajahi-jurusan {
             box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 20px 50px rgba(0, 0, 0, 0.3);
-            animation: btn-jelajahi-pulse 2.5s ease-in-out infinite;
+            animation: btn-jelajahi-pulse 4s ease-in-out infinite;
         }
 
         .btn-jelajahi-jurusan:hover {
@@ -4491,7 +4491,7 @@
             position: relative;
             overflow: hidden;
             transform: translateZ(0);
-            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, filter 220ms ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease, filter 0.4s ease;
             box-shadow: 0 10px 26px rgba(2, 6, 23, 0.45);
             filter: saturate(1.05);
         }
@@ -4505,7 +4505,7 @@
                     rgba(255, 255, 255, 0.18) 40%,
                     rgba(255, 255, 255, 0) 70%);
             transform: translateX(-120%) skewX(-15deg);
-            transition: transform 700ms ease;
+            transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
             pointer-events: none;
             mix-blend-mode: screen;
         }
@@ -4521,7 +4521,7 @@
         }
 
         .hero-badge i {
-            transition: transform 220ms ease, filter 220ms ease, opacity 220ms ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease, opacity 0.4s ease;
             filter: drop-shadow(0 6px 14px rgba(56, 189, 248, 0.25));
         }
 
@@ -4891,7 +4891,7 @@
 
         /* ✨ FLOATING BUTTON ✨ */
         .floating-btn {
-            animation: floating-btn 3s ease-in-out infinite;
+            animation: floating-btn 4.5s ease-in-out infinite;
             position: relative;
             z-index: 100 !important;
             cursor: pointer !important;
@@ -4927,7 +4927,7 @@
 
         /* ✨ HOVER EFFECT FOR CARDS ✨ */
         .card-hover-effect {
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .card-hover-effect:hover {
@@ -5677,6 +5677,62 @@
         .profil-image-flash {
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 10px 20px -5px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+                0 0 30px -5px rgba(59, 130, 246, 0.15);
+            transition: box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .profil-image-flash:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow:
+                0 20px 30px -10px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+                0 0 50px -10px rgba(59, 130, 246, 0.25),
+                0 0 80px -20px rgba(6, 182, 212, 0.15);
+        }
+        .dark .profil-image-flash {
+            border-color: rgba(59, 130, 246, 0.25);
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.3),
+                0 10px 20px -5px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+                0 0 40px -10px rgba(59, 130, 246, 0.2);
+        }
+        .dark .profil-image-flash:hover {
+            border-color: rgba(59, 130, 246, 0.45);
+            box-shadow:
+                0 20px 30px -10px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+                0 0 60px -15px rgba(59, 130, 246, 0.3),
+                0 0 100px -25px rgba(6, 182, 212, 0.2);
+        }
+        /* Subtle top-edge highlight for depth */
+        .profil-image-flash::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.4) 20%,
+                rgba(255, 255, 255, 0.6) 50%,
+                rgba(255, 255, 255, 0.4) 80%,
+                transparent 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .dark .profil-image-flash::before {
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.15) 20%,
+                rgba(255, 255, 255, 0.25) 50%,
+                rgba(255, 255, 255, 0.15) 80%,
+                transparent 100%);
         }
         .profil-image-flash::after {
             content: '';
@@ -5691,7 +5747,7 @@
                 rgba(255, 255, 255, 0) 100%
             );
             opacity: 0;
-            animation: profil-flash 6s ease-in-out infinite;
+            animation: profil-flash 8s ease-in-out infinite;
             pointer-events: none;
             border-radius: inherit;
         }
@@ -6859,7 +6915,7 @@
                     if (entry.isIntersecting) {
                         // Add delay based on element position
                         const rect = entry.target.getBoundingClientRect();
-                        const delay = Math.min(rect.top / window.innerHeight * 200, 300);
+                        const delay = Math.min(rect.top / window.innerHeight * 280, 420);
 
                         setTimeout(() => {
                             entry.target.classList.add('is-visible');
@@ -7226,7 +7282,7 @@
                             element.classList.remove('is-typing');
                         }, 1500);
                     }
-                }, 35);
+                }, 15);
             }
 
             const characterObserverOptions = {
@@ -7362,7 +7418,7 @@
                 })
             }, { threshold: 0.15 });
             currCards.forEach((card, idx) => {
-                card.style.transitionDelay = (idx * 90) + 'ms';
+                card.style.transitionDelay = (idx * 140) + 'ms';
                 revealObserver.observe(card);
             });
         });
