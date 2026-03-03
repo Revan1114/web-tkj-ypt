@@ -4392,6 +4392,82 @@
             padding-bottom: 0 !important;
             min-height: 100vh !important;
             min-height: 100dvh !important;
+            position: relative;
+        }
+
+        /* ✨ Beranda: animated background orbs */
+        .beranda-orb {
+            animation: beranda-orb-float 12s ease-in-out infinite;
+        }
+        .beranda-orb:nth-child(1) { animation-delay: 0s; }
+        .beranda-orb:nth-child(2) { animation-delay: -4s; }
+        .beranda-orb:nth-child(3) { animation-delay: -8s; }
+        @keyframes beranda-orb-float {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; }
+            33% { transform: translate(15px, -20px) scale(1.05); opacity: 1; }
+            66% { transform: translate(-10px, 10px) scale(0.98); opacity: 0.85; }
+        }
+
+        /* ✨ Beranda: entrance animations */
+        .beranda-fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            animation: beranda-fade-in-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .beranda-fade-in-delay-1 { animation-delay: 0.15s; }
+        .beranda-fade-in-delay-2 { animation-delay: 0.3s; }
+        .beranda-fade-in-delay-3 { animation-delay: 0.45s; }
+        .beranda-fade-in-delay-4 { animation-delay: 0.6s; }
+        .beranda-fade-in-delay-5 { animation-delay: 0.75s; }
+        @keyframes beranda-fade-in-up {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ✨ Beranda: hero image glow pulse */
+        .beranda-hero-glow {
+            animation: beranda-glow-pulse 4s ease-in-out infinite;
+        }
+        @keyframes beranda-glow-pulse {
+            0%, 100% { opacity: 0.85; filter: blur(40px); }
+            50% { opacity: 1; filter: blur(48px); }
+        }
+
+        /* ✨ Beranda: image float + entrance */
+        .beranda-hero-img {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: beranda-fade-in-up 0.9s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+                beranda-img-float 6s 1.15s ease-in-out infinite;
+        }
+        @keyframes beranda-img-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ✨ Beranda: staggered badge entrance */
+        .beranda-badge {
+            opacity: 0;
+            transform: translateY(16px) scale(0.96);
+            animation: beranda-badge-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .beranda-badge:nth-child(1) { animation-delay: 0.5s; }
+        .beranda-badge:nth-child(2) { animation-delay: 0.65s; }
+        .beranda-badge:nth-child(3) { animation-delay: 0.8s; }
+        @keyframes beranda-badge-in {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ✨ Beranda: subtle grid overlay (optional tech feel) */
+        .beranda-grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent 70%);
         }
 
         /* Tombol Jelajahi Jurusan di beranda (tengah, sejajar tulisan TJKT) */
@@ -4474,6 +4550,23 @@
 
             .hero-badge::after {
                 transition: none !important;
+            }
+
+            .beranda-orb,
+            .beranda-hero-glow,
+            .beranda-hero-img,
+            .beranda-badge {
+                animation: none !important;
+            }
+            .beranda-fade-in,
+            .beranda-hero-img {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+            }
+            .beranda-badge {
+                opacity: 1 !important;
+                transform: none !important;
             }
         }
 
@@ -5548,6 +5641,80 @@
             color: #9ca3af;
         }
 
+        /* Profil section: image fits all devices, no overflow */
+        #profil .profil-image-flash {
+            max-width: 100%;
+        }
+        /* Use aspect-ratio so height follows width and never overflows */
+        #profil .profil-image-flash {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+        }
+        #profil #profil-sequence {
+            width: 100%;
+            height: 100%;
+            display: block;
+            max-width: 100%;
+        }
+        @media (max-width: 768px) {
+            #profil #profil-sequence {
+                max-height: none;
+                height: 100%;
+            }
+        }
+        @media (max-width: 480px) {
+            #profil #profil-sequence {
+                max-height: none;
+                height: 100%;
+            }
+        }
+        /* Let grid column shrink on small screens so image doesn't overflow */
+        #profil .grid > div:first-child {
+            min-width: 0;
+        }
+
+        /* Profil section: flashing effect on image card */
+        .profil-image-flash {
+            position: relative;
+            overflow: hidden;
+        }
+        .profil-image-flash::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                105deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.04) 45%,
+                rgba(255, 255, 255, 0.10) 50%,
+                rgba(255, 255, 255, 0.04) 55%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            opacity: 0;
+            animation: profil-flash 6s ease-in-out infinite;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        .dark .profil-image-flash::after {
+            background: linear-gradient(
+                105deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.03) 45%,
+                rgba(255, 255, 255, 0.12) 50%,
+                rgba(255, 255, 255, 0.03) 55%,
+                rgba(255, 255, 255, 0) 100%
+            );
+        }
+        @keyframes profil-flash {
+            0%, 100% { opacity: 0; }
+            15% { opacity: 1; }
+            50% { opacity: 0.3; }
+            85% { opacity: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .profil-image-flash::after { animation: none; opacity: 0; }
+        }
+
         .timeline {
             position: relative;
             margin-top: 1.5rem;
@@ -5744,24 +5911,25 @@
         <section id="beranda"
             class="relative w-full min-h-[70vh] bg-gradient-to-br from-[#020617] via-[#020b1f] to-[#001a3b] text-white">
             <div class="absolute inset-0 pointer-events-none">
-                <div class="absolute -top-32 -left-10 w-60 h-60 bg-sky-500/30 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-0 right-0 w-72 h-72 bg-cyan-400/25 rounded-full blur-3xl"></div>
-                <div class="absolute top-1/3 right-1/4 w-40 h-40 bg-sky-400/25 rounded-full blur-3xl"></div>
+                <div class="beranda-orb absolute -top-32 -left-10 w-60 h-60 bg-sky-500/30 rounded-full blur-3xl"></div>
+                <div class="beranda-orb absolute bottom-0 right-0 w-72 h-72 bg-cyan-400/25 rounded-full blur-3xl"></div>
+                <div class="beranda-orb absolute top-1/3 right-1/4 w-40 h-40 bg-sky-400/25 rounded-full blur-3xl"></div>
             </div>
+            <div class="beranda-grid-overlay"></div>
             <div class="relative z-10 container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-24">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                     <div class="space-y-5 sm:space-y-6 md:-mt-12 lg:-mt-20">
                         <h1
-                            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+                            class="beranda-fade-in beranda-fade-in-delay-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
                             Membangun Ahli<br class="hidden sm:block" />
                             <span class="text-sky-300">Jaringan & Teknologi</span><br />
                             Masa Depan Digital.
                         </h1>
-                        <p class="text-sm sm:text-base text-slate-100/80 max-w-xl">
+                        <p class="beranda-fade-in beranda-fade-in-delay-2 text-sm sm:text-base text-slate-100/80 max-w-xl">
                             Pelajari jaringan komputer, server, keamanan siber, dan teknologi telekomunikasi dengan
                             pendekatan praktik nyata dan bimbingan guru berpengalaman.
                         </p>
-                        <div class="flex flex-wrap gap-3 sm:gap-4">
+                        <div class="beranda-fade-in beranda-fade-in-delay-3 flex flex-wrap gap-3 sm:gap-4">
                             <a href="#profil"
                                 class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-slate-900 font-semibold text-sm sm:text-base shadow-lg shadow-sky-500/40 hover:shadow-sky-400/60 hover:-translate-y-0.5 transition">
                                 Jelajahi Profil Jurusan
@@ -5771,13 +5939,13 @@
                     </div>
                     <div class="relative max-w-xl mx-auto md:ml-auto flex flex-col items-center justify-center">
                         <div
-                            class="absolute -inset-10 bg-gradient-to-tr from-sky-400/40 via-blue-500/35 to-indigo-500/30 rounded-[3rem] blur-3xl">
+                            class="beranda-hero-glow absolute -inset-10 bg-gradient-to-tr from-sky-400/40 via-blue-500/35 to-indigo-500/30 rounded-[3rem] blur-3xl">
                         </div>
                         <img src="Elemen beranda.png" alt="Elemen Beranda TJKT"
-                            class="relative z-10 w-full max-w-lg h-auto object-contain drop-shadow-[0_25px_55px_rgba(15,23,42,0.95)] transform translate-y-1 md:-translate-y-2 md:translate-x-2" />
+                            class="beranda-hero-img relative z-10 w-full max-w-lg h-auto object-contain drop-shadow-[0_25px_55px_rgba(15,23,42,0.95)] translate-y-1 md:-translate-y-2 md:translate-x-2" />
                         <div class="relative z-10 w-full max-w-lg mt-4 sm:mt-5 flex flex-wrap justify-center gap-3">
                             <div
-                                class="hero-badge px-3 py-2 rounded-2xl bg-white/10 border border-sky-400/40 backdrop-blur-md text-[11px] text-sky-100 shadow-lg shadow-sky-900/60 inline-flex items-center gap-2.5 min-w-[190px]">
+                                class="beranda-badge hero-badge px-3 py-2 rounded-2xl bg-white/10 border border-sky-400/40 backdrop-blur-md text-[11px] text-sky-100 shadow-lg shadow-sky-900/60 inline-flex items-center gap-2.5 min-w-[190px]">
                                 <i class="fas fa-server text-sky-200/90 shrink-0"></i>
                                 <span class="hero-badge-text min-w-0 truncate">
                                     <span class="hero-badge-text-strong font-semibold">TJKT</span>
@@ -5785,12 +5953,12 @@
                                 </span>
                             </div>
                             <div
-                                class="hero-badge px-3 py-2 rounded-2xl bg-slate-900/70 border border-cyan-400/40 backdrop-blur-md text-[11px] text-cyan-100 shadow-lg shadow-slate-900/70 inline-flex items-center gap-2.5 min-w-[150px]">
+                                class="beranda-badge hero-badge px-3 py-2 rounded-2xl bg-slate-900/70 border border-cyan-400/40 backdrop-blur-md text-[11px] text-cyan-100 shadow-lg shadow-slate-900/70 inline-flex items-center gap-2.5 min-w-[150px]">
                                 <i class="fas fa-flask text-cyan-200/90 shrink-0"></i>
                                 <span class="hero-badge-text hero-badge-text-strong font-semibold">Hands‑on Lab</span>
                             </div>
                             <div
-                                class="hero-badge px-3 py-2 rounded-2xl bg-indigo-900/70 border border-indigo-400/40 backdrop-blur-md text-[11px] text-indigo-100 shadow-lg shadow-slate-900/70 inline-flex items-center gap-2.5 min-w-[140px]">
+                                class="beranda-badge hero-badge px-3 py-2 rounded-2xl bg-indigo-900/70 border border-indigo-400/40 backdrop-blur-md text-[11px] text-indigo-100 shadow-lg shadow-slate-900/70 inline-flex items-center gap-2.5 min-w-[140px]">
                                 <i class="fas fa-rocket text-indigo-200/90 shrink-0"></i>
                                 <span class="hero-badge-text hero-badge-text-strong font-semibold">Future Ready</span>
                             </div>
@@ -5937,13 +6105,13 @@
                         teknologi informasi modern. </p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
-                    <div class="relative" data-scroll="stagger-1">
+                    <div class="relative min-w-0 overflow-hidden" data-scroll="stagger-1">
                         <div
                             class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-teal-400 rounded-2xl blur opacity-75">
                         </div>
                         <div
-                            class="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl card-hover-effect">
-                            <canvas id="profil-sequence" class="w-full h-56 sm:h-72 md:h-96 block"></canvas>
+                            class="profil-image-flash relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl card-hover-effect">
+                            <canvas id="profil-sequence" class="block w-full h-full"></canvas>
                         </div>
                     </div>
                     <div data-scroll="stagger-2">
